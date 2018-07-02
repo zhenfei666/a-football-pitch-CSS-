@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 100px;
+        /* height: 100px; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /*	项目位于容器的中心*/
+        background: radial-gradient(sandybrown, maroon);
+        --line: 0.3em solid white;
+    }
+
+    .container {
+        width: 120em;
+        height: 80em;
+        background-color: green;
+        font-size: 5px;
+        padding: 5em;
+
+    }
+
+    .container span {
+        display: block;
+    }
+
+    .field {
+        border: var(--line);
+        position: relative;
+        overflow: hidden;
+        /*角球线隐藏*/
+        width: inherit;
+        height: inherit;
+        z-index: 1;
+    }
+
+    .halfway-line {
+        width: 60em;
+        height: 80em;
+        border-right: var(--line);
+    }
+
+    .centre-circle,
+    .penalty-arc {
+        width: 20em;
+        height: 20em;
+        border: var(--line);
+        border-radius: 50%;
+        position: absolute;
+        top: 30em;
+    }
+
+    .centre-circle {
+        left: calc((120em - 20em - 0.3em)/2);
+    }
+
+    .centre-mark {
+        width: 2em;
+        height: 2em;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        top: calc(80em / 2 - 1em);
+        left: calc(120em / 2 - 1em + 0.3em / 2);
+
+    }
+
+    .penalty-mark {
+        width: 2em;
+        height: 2em;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        top: calc(80em / 2 - 1em);
+        left: calc(12em - 2em / 2);
+    }
+
+    .penalty-area {
+        width: 18em;
+        height: 44em;
+        border: var(--line);
+        position: absolute;
+        top: calc((80em - 44em) / 2);
+        left: -0.3em;
+        background-color: green;
+    }
+
+    .penalty-arc {
+        left: calc(12em - 20em / 2);
+        z-index: -1;
+    }
+
+    .goal-area {
+        width: 6em;
+        height: 20em;
+        border: var(--line);
+        position: absolute;
+        top: calc((80em - 20em) / 2);
+        left: -0.3em;
+    }
+
+    .corner-arc{
+        border:1px solid red;
+    }
+
+    .corner-arc::after,
+    .corner-arc::before{
+        content: '';
+        position: absolute;
+        width: 5em;
+        height: 5em;
+        border: 0.3em solid white;
+        border-radius: 50%;
+        left:calc(-5em / 2 - 0.3em);
+    }
+
+     .corner-arc::before {
+        top:calc(-5em / 2 - 0.3em);
+    }
+
+    .corner-arc::after {
+        bottom:calc(-5em / 2 - 0.3em);
+    }
+
+
+    /* .corner-arc-top {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        border: 0.3em solid white;
+        border-radius: 0 0 100px 0;
+        position: absolute;
+        top: -5%;
+        left:-5%;
+        position: absolute;
+    }
+
+    .corner-arc-bottom {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        border: 0.3em solid white;
+        border-radius: 0 100px 0 0;
+        position: absolute;
+        top: 880px;
+        left: -20px;
+        position: absolute;
+    } */
+
+    .right {
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: rotateY(180deg);
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="field">
+            <div class="left">
+                <span class="halfway-line"></span>
+                <span class="centre-circle"></span>
+                <span class="centre-mark"></span>
+                <span class="penalty-area"></span>
+                <span class="penalty-mark"></span>
+                <span class="penalty-arc"></span>
+                <span class="goal-area"></span>
+                <span class="corner-arc"></span>
+                
+            </div>
+            <div class="right">
+                <span class="halfway-line"></span>
+                <span class="centre-circle"></span>
+                <span class="centre-mark"></span>
+                <span class="penalty-area"></span>
+                <span class="penalty-mark"></span>
+                <span class="penalty-arc"></span>
+                <span class="goal-area"></span>
+                <span class="corner-arc"></span>
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
